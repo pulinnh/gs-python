@@ -27,4 +27,30 @@ def simular_sensor(distancia_agua):
     else:
         return "NORMAL"
 
- 
+ #Loop principal do sistema
+
+while True:
+    print("\n" + "="*45)
+    print("      SISTEMA ELO      ")
+    print("="*45)
+    print("1 - Iniciar Monitoramento Automatizado (Sensor)")
+    print("2 - Ver Idosos Vulneráveis Cadastrados")
+    print("3 - Ver Vizinhos Voluntários por CEP")
+    print("4 - Sair do Sistema")
+    print("="*45)
+
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        print("\n--- INICIANDO MONITORAMENTO EM TEMPO REAL ---")
+        cep_analise = input("Digite o CEP da região para monitorar (Ex: 04551-000)")
+
+        #Simulação de leitura de sensor 
+        for i in range(3):
+            #Simulando a água subindo a cada leitura
+            distancia_simulada = 100 - (i * 35)
+            status = simular_sensor(distancia_simulada)
+
+            #Saída formatada
+            print(f"[Leitura {i+1}] Distância da água até o sensor: {distancia_simulada}cm | Status: {status}")
+            break
